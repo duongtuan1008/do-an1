@@ -1,0 +1,515 @@
+#boder {
+  height: max-content;
+}
+.imgproduct {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 60%;
+  width: 100%;
+  margin: 20px 30px;
+  gap: 10px;
+  float: left;
+}
+.imgproduct img,
+#myVideo {
+  max-width: 430px;
+  width: 100%;
+
+  max-height: 500px;
+  height: 100%;
+  margin: 10px;
+}
+
+.demosp {
+  float: left;
+  margin: 20px 30px;
+  max-width: 487px;
+  width: 100%;
+}
+.demosp .name {
+  ft-size: 32px;
+  font-weight: 400;
+  color: black;
+}
+.cont {
+  display: inline-block;
+  width: 200px;
+}
+.cont > p {
+  float: left;
+  margin: 0 10px;
+}
+.cont > p:last-child {
+  color: rgb(10, 95, 66);
+}
+.sptuongtu {
+  display: flex;
+  margin: auto;
+}
+.sptuongtu img {
+  max-width: 100px;
+  width: 100%;
+  border-radius: 10px;
+  transform: translateY(0px);
+  transition: 1s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin: 0 5px;
+}
+.sptuongtu img:hover {
+  border: 1px solid;
+  transform: translateY(-5px);
+  transition: 1s;
+}
+.bangsize {
+  display: flex;
+  max-width: 100%;
+  width: 100%;
+  margin-top: 20px;
+  margin: auto;
+}
+.bangsize > .dau {
+  float: left;
+}
+.bangsize > .cuoi {
+  float: right;
+  color: #757575;
+  cursor: pointer;
+}
+.size {
+  max-width: 100%;
+  width: 100%;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(5, 0.5fr);
+  grid-template-rows: repeat(3, 0.5fr);
+}
+.one-size {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.one-size input {
+  opacity: 1;
+  width: 0;
+  height: 0;
+  z-index: 10;
+  caret-color: transparent;
+}
+.one-size label {
+  font-size: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 10px;
+  max-width: 80px;
+  width: 100%;
+  text-align: center;
+  transform: translateY(0px);
+  transition: 1s;
+  cursor: pointer;
+}
+.one-size:hover label {
+  border: 1px solid rgba(0, 0, 0, 1);
+  transform: translateY(-5px);
+  transition: 1s;
+}
+.one-size:focus label {
+  border: 1px solid rgba(0, 0, 0, 1);
+  transform: translateY(-5px);
+  transition: 1s;
+}
+input:checked + label {
+  transform: translateY(-5px);
+  border: 1px solid;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+input:focus + label {
+  transform: translateY(-5px);
+  box-shadow: inset 0 0 10px rgb(229, 229, 229);
+}
+.best-sale {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  width: 100%;
+}
+.best-sale p {
+  text-align: center;
+  max-width: 250px;
+  width: 100%;
+}
+.best-sale a {
+  color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+}
+.best-sale a:hover {
+  color: #757575;
+}
+.button-sell {
+  max-width: 100%;
+  max-height: 200px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  margin-bottom: 20px;
+}
+.buy-favourite {
+  margin: 5px 0px;
+  font-size: 16px;
+  padding: 20px 100px;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #000;
+  letter-spacing: 1px;
+  transition: 1s;
+  cursor: pointer;
+}
+#favourite {
+  background-color: #fff;
+  color: #000;
+}
+#favourite:hover {
+  letter-spacing: 3px;
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.6);
+  transition: 1s;
+}
+#buy:hover {
+  letter-spacing: 3px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
+  transition: 1s;
+}
+.messeger {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  max-height: 100px;
+  height: 100%;
+  padding: 10px;
+  max-width: 400px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.messeger p {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* display: block; */
+}
+.mota {
+  margin: 20px;
+  float: left;
+  text-align: left;
+  font-size: 14px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.demosp ul {
+  list-style: none; /* Remove HTML bullets */
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+
+.demosp li {
+  padding-left: 30px;
+  margin: 10px 0 0 0;
+}
+
+.demosp li::before {
+  content: "•";
+  padding-right: 8px;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}
+.mota > p {
+  margin: 0 0 20px;
+}
+.size-fit {
+  display: block;
+  /* width: 300px; */
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  min-height: max-content;
+  clear: both;
+}
+h4 {
+  float: left;
+  margin: 16px;
+}
+.check i {
+  text-align: center;
+}
+.check button {
+  border: none;
+  background-color: #fff;
+  padding: 16px;
+  float: right;
+}
+.check input {
+  opacity: 1;
+  width: 0;
+  height: 0;
+  z-index: 10;
+}
+.check i {
+  position: absolute;
+}
+.check label {
+  font-size: 16px;
+  padding: 16px 30px 16px 290px;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: center;
+  transform: translateY(0px);
+  transition: 1s;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  /* background-color: aquamarine; */
+}
+.check {
+  margin: 20px;
+}
+
+.fishing label {
+  padding: 16px 30px 16px 100px;
+}
+.note {
+  display: none;
+}
+.slideshow .slide .image-container::before {
+  background-color: rgba(0, 0, 0, 0);
+}
+.openall {
+  clear: both;
+  display: block !important;
+}
+.spkhac {
+  float: left;
+  margin: 1em 0em;
+  float: left;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  /* background-color: rgb(247, 247, 247); */
+}
+.sptt {
+  margin: 10px 20px;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: none;
+  height: 500px;
+  width: 100%;
+}
+.sptt::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.sptt::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+.sptt::-webkit-scrollbar-thumb {
+  width: 2px;
+  border-radius: 10px;
+  background-image: linear-gradient(-45deg, #3c3c3c, #d5d5d5);
+  border-radius: 50px;
+}
+@keyframes effecbg {
+  from {
+    --rotate: 0deg;
+  }
+  to {
+    --rotate: -360deg;
+  }
+}
+.sanpham {
+  display: inline-block;
+  margin-right: 50px;
+  margin-top: 20px;
+  width: 380px;
+  height: 400px;
+}
+.rating label {
+  margin: 0px;
+}
+.fishing-rating {
+  clear: both;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+.fishing-rating h4 {
+}
+.rating {
+  display: flex;
+  justify-content: end;
+  flex-direction: row-reverse;
+  gap: 0.3rem;
+
+  margin-top: 20px;
+  --stroke: #666;
+  --fill: #ffc73a;
+}
+
+.rating input {
+  appearance: unset;
+}
+
+.rating label {
+  cursor: pointer;
+}
+
+.rating svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  overflow: visible;
+  fill: transparent;
+  stroke: var(--stroke);
+  stroke-linejoin: bevel;
+  stroke-dasharray: 12;
+  animation: idle 4s linear infinite;
+  transition: stroke 0.2s, fill 0.5s;
+}
+
+@keyframes idle {
+  from {
+    stroke-dashoffset: 24;
+  }
+}
+
+.rating label:hover svg {
+  stroke: var(--fill);
+}
+
+.rating input:checked + svg,
+.rating label:has(input:checked) ~ label svg {
+  transition: 0s;
+  /* Hopefully firefox gets :has support soon w/o feature flag */
+  animation: idle 4s linear infinite, yippee 0.75s backwards;
+  fill: var(--fill);
+  stroke: var(--fill);
+  stroke-opacity: 0;
+  stroke-dasharray: 0;
+  stroke-linejoin: miter;
+  stroke-width: 8px;
+}
+
+@keyframes yippee {
+  0% {
+    transform: scale(1);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30% {
+    transform: scale(0);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30.1% {
+    stroke: var(--fill);
+    stroke-dasharray: 0;
+    stroke-linejoin: miter;
+    stroke-width: 8px;
+  }
+
+  60% {
+    transform: scale(1.2);
+    fill: var(--fill);
+  }
+}
+
+table {
+  border: 1px solid;
+}
+th,
+td {
+  border: 1px solid;
+}
+.imgbig {
+  display: none;
+}
+@media (min-width: 300px) and (max-width: 600px) {
+  #login {
+    width: 100%;
+    display: inline-block;
+  }
+  .tensp {
+    margin-left: 10px;
+  }
+  .imgbig {
+    display: block;
+  }
+  .imgbig img {
+    max-width: 600px;
+    width: 100%;
+  }
+  .imgproduct {
+    display: flex;
+    overflow-x: scroll;
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+  }
+  .imgproduct::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .imgproduct img {
+    width: 44px;
+    margin: 0px;
+  }
+  .sptt {
+    height: 380px;
+  }
+  .sanpham {
+    height: 380px;
+  }
+  .anhsp {
+    width: 150px;
+  }
+  .demosp {
+    margin: 20px 0px;
+  }
+  .sptuongtu {
+    margin-left: 10px;
+  }
+  .sptuongtu img {
+    max-width: 90px;
+  }
+  .one-size {
+    margin: 10px 0px;
+  }
+  .messeger {
+    margin: auto;
+  }
+  .fishing-rating {
+    margin-right: 10px;
+  }
+  .slideshow {
+    height: 200px;
+  }
+  .sanpham {
+    width: 160px;
+    margin-right: 0px;
+  }
+}

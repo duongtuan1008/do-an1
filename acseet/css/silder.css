@@ -1,0 +1,331 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
+
+/*===== VARIABLES CSS =====*/
+
+:root {
+  --transition--effect: 0.4s, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+  --height: 80px;
+  --heightheader: 50px;
+  --transition--effect: 0.4s, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+  --size-button: 30px;
+  --nav-width: 92px;
+
+  /*===== Colores =====*/
+  --first-color: #0c5df4;
+  --bg-color: #12192c;
+  --sub-color: #b6cefc;
+  --white-color: #fff;
+
+  /*===== Fuente y tipografia =====*/
+  --body-font: "Poppins", sans-serif;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+
+  /*===== z index =====*/
+  --z-fixed: 100;
+}
+a {
+  text-decoration: none;
+}
+#header {
+  position: sticky;
+  top: 0px;
+  left: 0;
+  right: 0;
+  min-height: var(--heightheader);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  background-color: #fff;
+  height: 60px;
+}
+
+#logo {
+  position: relative;
+  margin: 0 20px 0 20px;
+  width: 100px;
+}
+.title {
+  line-height: var(--heightheader);
+}
+.title::before,
+.title::after {
+  position: absolute;
+  content: attr(data-title);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(32, 33, 34, 0.5);
+}
+.title::after {
+  color: transparent;
+  -webkit-text-stroke: rgba(83, 99, 115, 0.5) 1px;
+}
+#logo img {
+  height: var(--heightheader);
+  margin: 0 10px 0 16px;
+}
+#boder {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+}
+.nav-boder {
+  position: absolute;
+  left: 0;
+  width: var(--nav-width);
+  min-height: 100%;
+  bottom: 0;
+  background-color: var(--bg-color);
+  color: var(--white-color);
+  padding: 3rem 1.5rem 2rem;
+  transition: 0.5s;
+  z-index: 1;
+}
+.nav-admin {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.nav__brand {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.nav__toggle {
+  font-size: 1.25rem;
+  padding: 0.75rem;
+  cursor: pointer;
+}
+.nav__logo {
+  color: var(--white-color);
+  font-weight: 600;
+}
+
+.nav__link {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: 0.75rem;
+  padding: 0.75rem;
+  color: var(--white-color);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.nav__link:hover {
+  background-color: var(--first-color);
+}
+.nav__icon {
+  font-size: 1.25rem;
+}
+.nav__name {
+  font-size: var(--small-font-size);
+}
+
+/*Expander menu*/
+.expander {
+  width: calc(var(--nav-width) + 9.25rem);
+}
+
+/*Add padding body*/
+.body-pd {
+  padding: 2rem 0 0 16rem;
+}
+
+/*Active links menu*/
+.active {
+  background-color: var(--first-color);
+}
+
+/*===== COLLAPSE =====*/
+.collapse {
+  grid-template-columns: 20px max-content 1fr;
+}
+.collapse__link {
+  justify-self: flex-end;
+  transition: 0.5s;
+}
+.collapse__menu {
+  display: none;
+  padding: 0.75rem 2.25rem;
+}
+.collapse__sublink {
+  color: var(--sub-color);
+  font-size: var(--small-font-size);
+}
+.collapse__sublink:hover {
+  color: var(--white-color);
+}
+
+/*Show collapse*/
+.showCollapse {
+  display: block;
+}
+
+/*Rotate icon*/
+.rotate {
+  transform: rotate(180deg);
+}
+.boder-admin {
+  /* height: 100vh; */
+  width: 89%;
+  float: right;
+  padding: 20px 7% 50px 7%;
+  flex-wrap: wrap;
+}
+.dashboard {
+  height: 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+.dashboard span {
+  line-height: 50px;
+  font-size: 20px;
+}
+.same {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 16px;
+}
+.sub-same {
+  margin-top: 20px;
+  position: relative;
+  height: 120px;
+  border-radius: 10px;
+  display: flex;
+  padding: 20px;
+  box-shadow: 0 4px 20px 1px #0000000f, 0 1px 4px #00000014;
+}
+.same img {
+  height: 100%;
+}
+.same-inf {
+  margin-left: 20px;
+  font-family: "Bruno Ace", cursive;
+  letter-spacing: 0.5;
+  font-weight: bold;
+  color: rgba(159, 187, 116, 1);
+}
+
+.chart {
+  display: flex;
+  gap: 20px;
+  margin: 20px 20px 0 0;
+}
+.barchart {
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  flex: 0 0 65%;
+  max-width: 65%;
+}
+.radarchat {
+  width: 500px;
+  height: 500px;
+  float: right;
+  flex: 0 0 35.33333%;
+  max-width: 35.33333%;
+}
+.product-chat {
+  margin-top: 20px;
+  position: relative;
+  border-radius: 10px;
+  display: flex;
+  padding: 20px;
+  box-shadow: 0 4px 20px 1px #0000000f, 0 1px 4px #00000014;
+}
+footer {
+  position: sticky;
+  z-index: 9999;
+}
+#home {
+  /* display: none; */
+}
+.cart-add {
+  flex: 0 0 20;
+  max-width: 20%;
+}
+.form-input {
+  margin-bottom: 10px;
+  border-radius: 4px;
+  width: 100%;
+  padding: 0 20px;
+  transition: 0.25s ease;
+  margin-top: 24px;
+  padding-inline: 10px 16px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(17, 17, 17);
+  background-color: transparent;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+}
+
+.form-input:focus {
+  border-color: #f8f8fa;
+}
+
+.form-label {
+  user-select: none;
+  color: #000000;
+  pointer-events: none;
+  transition: 0.25s ease;
+  display: block;
+  margin: 16px 0px 12px 10px;
+  font-size: 16px;
+  height: 10px;
+  line-height: 36px;
+}
+.btn-setting {
+  padding: 10px;
+  margin-left: 10px;
+  border: none;
+  border-bottom: solid rgba(0, 0, 0, 0.3);
+  background-color: #ffff;
+}
+.input-file {
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #c4cddf;
+  border-radius: 1rem;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 1rem;
+}
+.data-product {
+  display: flex;
+  gap: 12px;
+}
+.product-add{
+  flex: 0 0  80%;
+  max-width: 80%;
+}
+.header-product {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 130px));
+}
+.header-product div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.header-product div:hover{
+  background-color: #b6cefc;
+}

@@ -50,49 +50,17 @@
                 <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                 <span class="nav__name">Dashboard</span>
               </a>
-              <a href="#" class="nav__link">
-                <ion-icon
-                  name="chatbubbles-outline"
-                  class="nav__icon"
-                ></ion-icon>
-                <span class="nav__name">Messenger</span>
-              </a>
 
               <div class="nav__link collapse">
                 <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                 <span class="nav__name">Projects</span>
-
-                <ion-icon
-                  name="chevron-down-outline"
-                  class="collapse__link"
-                ></ion-icon>
-
-                <ul class="collapse__menu">
-                  <a href="#" class="collapse__sublink">Data</a>
-                  <a href="#" class="collapse__sublink">Group</a>
-                  <a href="#" class="collapse__sublink">Members</a>
-                </ul>
               </div>
 
               <a href="#" class="nav__link">
                 <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
                 <span class="nav__name">Analytics</span>
               </a>
-              <div class="nav__link collapse">
-                <ion-icon name="people-outline" class="nav__icon"></ion-icon>
-                <span class="nav__name">Team</span>
 
-                <ion-icon
-                  name="chevron-down-outline"
-                  class="collapse__link"
-                ></ion-icon>
-
-                <ul class="collapse__menu">
-                  <a href="#" class="collapse__sublink">Data</a>
-                  <a href="#" class="collapse__sublink">Group</a>
-                  <a href="#" class="collapse__sublink">Members</a>
-                </ul>
-              </div>
               <a href="#" class="nav__link">
                 <ion-icon name="settings-outline" class="nav__icon"></ion-icon>
                 <span class="nav__name">Settings</span>
@@ -179,8 +147,8 @@
               <label for="">
                 <label for="name" st class="form-label">Tên sản phẩm</label>
 
-                <input type="text" id="bank" class="form-input" />
-                <div class="error-message"></div>
+                <input type="text" id="name" class="form-input ip-add" />
+                <div class="error-message-add"></div>
               </label>
               <label for="">
                 <div>
@@ -191,37 +159,54 @@
                     style="width: 100px"
                   />
                 </div>
-                <input
-                  type="file"
-                  id="inputfile"
-                  class="form-input input-file"
-                />
+                <input type="file" id="inputfile" class="input-file" />
+                <div class="error-message-add"></div>
               </label>
               <label for="">
                 <label for="" class="form-label">giá sản phẩm</label>
-                <input type="text" name="" class="form-input" id="" />
+                <input
+                  type="text"
+                  name=""
+                  class="form-input ip-add"
+                  id="countadd"
+                />
+                <div class="error-message-add"></div>
               </label>
               <label for="">
-                <label for="" class="form-label"
-                  >giảm giá (nếu không giảm giá trị thì để trống)</label
-                >
-                <input type="text" name="" class="form-input" id="" />
+                <label for="" class="form-label">sale</label>
+                <div class="input-group">
+                  <input
+                    type="number"
+                    name=""
+                    class="form-input ip-add"
+                    id="saleadd"
+                  />
+                  <span class="input-group-text">%</span>
+                </div>
               </label>
               <label for="">
                 <label for="" class="form-label">color</label>
                 <input
                   type="number"
-                  class="form-input"
+                  class="form-input ip-add"
                   value="1"
                   min="1"
                   name=""
-                  id=""
+                  id="color-add"
                 />
+                <div class="error-message-add"></div>
               </label>
               <label for="">
                 <label for="" class="form-label">information</label>
-                <input type="text" name="" class="form-input" id="" />
+                <input
+                  type="text"
+                  name=""
+                  class="form-input ip-add"
+                  id="ifn-add"
+                />
+                <div class="error-message-add"></div>
               </label>
+              <button id="add-products">More products</button>
             </div>
             <div class="product-add">
               <div class="header-product">
@@ -232,6 +217,19 @@
                 <div>sale price</div>
                 <div>color</div>
                 <div>ifnomation</div>
+              </div>
+              <div class="Cartadd">
+                <div class="moresp">
+                  <div class="index">1</div>
+                  <div class="produc-img">
+                    <img src="/acseet/img/shoes1.png" alt="" class="imgadd" />
+                  </div>
+                  <div class="nameadd">Nike Court Vision Low Next Nature</div>
+                  <div class="priceadd">66$</div>
+                  <div class="saleadd">10%</div>
+                  <div class="coloradd">3 color</div>
+                  <div class="iformationadd">Women's Shoes</div>
+                </div>
               </div>
             </div>
           </div>
@@ -295,6 +293,7 @@
   </footer>
   <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
   <script src="/acseet/java/chart.js"></script>
   <script src="/acseet/java/slider.js"></script>
 </html>

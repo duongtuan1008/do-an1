@@ -148,8 +148,81 @@ const fade = () => {
   loading.classList.add("fade");
 };
 window.addEventListener("load", fade);
+//////////////////////////////////////////////////////
 const imga = document.getElementById("img");
 const input = document.getElementById("inputfile");
-input.addEventListener("change", () => {
-  imga.src = URL.createObjectURL(input.files[0]);
+input.addEventListener("change", function addimg(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.addEventListener("load", (event) => {
+    const result = event.target.result;
+    imga.src = result;
+    return result;
+
+    // console.log(reader);
+  });
+  reader.readAsDataURL(file);
 });
+////////////////////////////////////////////////////////////////
+let btnaddproduct = document.getElementById("add-products");
+btnaddproduct.addEventListener("click", () => {
+  let nameprodcut = document.querySelector("#name").value;
+  let moreimg = document.querySelector("#img").src;
+  let countadd = document.querySelector("#countadd").value;
+  let sale = document.querySelector("#saleadd").value;
+  let color = document.querySelector("#color-add").value;
+  let information = document.querySelector("#ifn-add").value;
+  let more_product = localStorage.getItem("more_product")
+    ? JSON.parse(localStorage.getItem("more_product"))
+    : [];
+  if (
+    nameprodcut == "" ||
+    countadd == "" ||
+    sale == "" ||
+    color == "" ||
+    information == ""
+  ) {
+    swal("Warning!", "Please do not leave it blank", "warning");
+  } else {
+    more_product.push({
+      nameprodcut: nameprodcut,
+      moreimg: moreimg,
+      countadd: countadd,
+      sale: sale,
+      color: color,
+      information: information,
+    });
+    localStorage.setItem("more_product", JSON.stringify(more_product));
+  }
+  moreaddd();
+});
+////////////////////////////////////
+function moreaddd() {
+  let more_product = localStorage.getItem("more_product")
+    ? JSON.parse(localStorage.getItem("more_product"))
+    : [];
+  let moresp = "";
+  {
+    more_product.map((value, index) => {
+      console.log(value.moreimg)
+      
+      moresp += '<div class="moresp"><div class="index">' + index;
+      '</div><div class="produc-img"><img src="' +
+        // value.moreimg 
+        +
+        '" alt="" class="imgadd" /></div><div class="nameadd">' +
+        value.nameprodcut +
+        '</div><div class="priceadd">' +
+        value.countadd +
+        '</div><div class="saleadd"> ' +
+        value.sale +
+        '</div><div class="coloradd">' +
+        value.color +
+        '</div><div class="iformationadd">' +
+        value.information +
+        '</div></div>';
+    });
+  }
+  document.querySelector(".Cartadd").innerHTML = moresp;
+}
+document.addEventListener("DOMContentLoaded", moreaddd());

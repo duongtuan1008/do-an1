@@ -75,6 +75,7 @@ a {
 }
 #boder {
   position: relative;
+  min-height: 600px;
   height: 100%;
   display: flex;
   justify-content: end;
@@ -90,6 +91,16 @@ a {
   padding: 3rem 1.5rem 2rem;
   transition: 0.5s;
   z-index: 1;
+}
+.nav {
+  display: flex;
+  width: 100%;
+}
+.box {
+  display: flex;
+  width: 100%;
+  margin: 8px 6px 0 6px;
+  justify-content: end;
 }
 .nav-admin {
   height: 100%;
@@ -256,8 +267,11 @@ footer {
   /* display: none; */
 }
 .cart-add {
-  flex: 0 0 20;
-  max-width: 20%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex: 0 0 100%;
+  max-width: 100%;
 }
 .form-input {
   border-radius: 4px;
@@ -275,11 +289,13 @@ footer {
   border: 1px solid rgba(0, 0, 0, 0.3);
   margin-top: 10px;
 }
-
 .form-input:focus {
   border-color: #f8f8fa;
 }
-
+.img-name,
+.thongtinsp {
+  width: 40%;
+}
 .form-label {
   user-select: none;
   color: #000000;
@@ -309,14 +325,15 @@ footer {
 .data-product {
   display: flex;
   gap: 12px;
+  flex-direction: column;
 }
 .product-add {
-  flex: 0 0 80%;
-  max-width: 80%;
+  flex: 0 0 100%;
+  max-width: 100%;
 }
 .header-product {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 130px));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 126px));
 }
 .header-product div {
   display: flex;
@@ -329,13 +346,17 @@ footer {
   background-color: #b6cefc;
 }
 
-#add-products {
+#add-products,
+#update-products {
+  display: flex;
+  margin: auto;
   box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   padding: 10px;
   /* border: transparent; */
   border-radius: 50px;
   background-image: linear-gradient(90deg, #3a4f50, #0ef6cc);
+  margin-top: 10px;
 }
 #saleadd {
   width: 82%;
@@ -368,20 +389,104 @@ footer {
   width: 20px;
   margin-top: 10px;
 }
-#Cartadd {
+.Cartadd {
   width: 100%;
 }
+
 .moresp {
   display: grid;
   margin-top: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 130px));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 126px));
   height: 100px;
+}
+#img {
+  margin-top: 10px;
+  border-radius: 10px;
 }
 .moresp div {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid #ced4da;
+
+  padding: 10px;
+  text-align: center;
 }
 .imgadd {
   width: 50px;
+  margin: 10px 0px;
+}
+.delete-product,
+.edit-product {
+  border: none;
+  background-color: #fff;
+}
+.delete-product:hover,
+.edit-product:hover {
+  color: rgb(255, 0, 0);
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.label-account {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 0 0 auto;
+  width: 50%;
+  margin: 10px 0 0 0;
+}
+.form-control {
+  display: block;
+  width: 90%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #ffff;
+  background-clip: padding-box;
+  border: 1px solid #dee2e6;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.375rem;
+
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btnacc {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+.table {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+  vertical-align: top;
+  border-color: #dee2e6;
+  caption-side: bottom;
+  border-collapse: collapse;
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+
+.table-bordered > :not(caption) > * > * {
+  border-width: 0 1px;
+}
+.table > :not(caption) > * > * {
+  padding: 0.5rem 0.5rem;
+  border-top-width: 1px;
+  background-color: transparent;
+  border-bottom-width: 1px;
+  box-shadow: inset 0 0 0 9999px transparent;
 }

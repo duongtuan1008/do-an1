@@ -21,6 +21,7 @@ btnRegister.addEventListener("click", (e) => {
     };
     localStorage.setItem("user", JSON.stringify(user));
     let json = JSON.stringify(user);
+
     localStorage.setItem(inputUsernameRegister.value, json);
     // let listkhach = localStorage.setItem("listkhack")
     //   ? JSON.parse(localStorage.getItem("listbank"))
@@ -30,6 +31,9 @@ btnRegister.addEventListener("click", (e) => {
     // });
     // localStorage.setItem("listkhack", JSON.stringify(listkhach));
     swal("Success", "Sign Up Success", "success");
+    document.querySelector("#name").value = "";
+    inputUsernameRegister.value = "";
+    inputPasswordRegister.value = "";
   }
 });
 const inputUsername = document.querySelector("#Email-login");
@@ -60,14 +64,18 @@ btnLogin.addEventListener("click", (e) => {
   checkpass();
   if (inputPassword.value === "" || inputUsername === "") {
   } else {
-    const user = JSON.parse(localStorage.getItem(inputUsername.value));
+    const user = JSON.parse(localStorage.getItem("user"));
     if (
       user.username === inputUsername.value &&
       user.password === inputPassword.value
     ) {
       window.location.href = "index.html";
     } else {
-      swal("Error!", "Login Up Error", "error");
+      if (inputUsername.value == "admin" && inputPassword.value == "123") {
+        window.location.href = "admin.html";
+      } else {
+        swal("Error!", "Login Up Error", "error");
+      }
     }
   }
 });

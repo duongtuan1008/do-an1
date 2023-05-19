@@ -51,51 +51,7 @@ function hile_nav() {
 // menu .addEventListener("click",()=>{
 //   subnav.style.display="block"
 // })
-let btnbuy = document.querySelectorAll(".buy");
-btnbuy.forEach((buy) => {
-  buy.addEventListener("click", (event) => {
-    var buybtn = event.target;
-    // console.log(buy);
-    var produc = buybtn.parentElement;
-    console.log(produc);
-    let namespr = produc.querySelector(".name-sp").textContent;
-    let thongtin = produc.querySelector(".thongtinsp").textContent;
-    let gia = produc.querySelector(".gia").textContent;
-    const anh = produc.querySelector(".imgsp");
-    const image = anh.getAttribute("src");
-    let sizegg = produc.querySelector(".sizegg").value;
-    var soluong = 1;
-    let list = localStorage.getItem("list")
-      ? JSON.parse(localStorage.getItem("list"))
-      : [];
-    console.log(list);
-    var flag = false;
 
-    for (let i = 0; i < list.length; i++) {
-      if (list[i].namesp == namespr && list[i].sizeone == sizegg) {
-        var cout = list[i].soluong++;
-        flag = true;
-        break;
-      }
-    }
-    if (flag == false) {
-      list.push({
-        image: image,
-        namesp: namespr,
-        thongtin: thongtin,
-        gia: gia,
-        sizeone: sizegg,
-        soluong: soluong,
-      });
-    }
-    localStorage.setItem("list", JSON.stringify(list));
-
-    swal("successful", "successful payment!", "success");
-    document.querySelector("#so").innerText = list.length;
-    ree();
-    hienthikach();
-  });
-});
 function so() {
   let list = localStorage.getItem("list")
     ? JSON.parse(localStorage.getItem("list"))
@@ -125,14 +81,13 @@ window.addEventListener("load", fade);
 function upimguser() {
   let imguser = JSON.parse(localStorage.getItem("imguser"));
   let iconuser = document.querySelector(".fa-user");
-  let imgboxuser = document.querySelector("#imguser")
-  console.log(imguser)
+  let imgboxuser = document.querySelector("#imguser");
+  console.log(imguser);
   if (!imguser) {
-    imgboxuser.style.display="none"
+    imgboxuser.style.display = "none";
   } else {
     iconuser.style.display = "none";
-    imgboxuser.src = imguser
-    
+    imgboxuser.src = imguser;
   }
 }
 ///////////////////////////////////////
@@ -169,7 +124,49 @@ function ree() {
   // '<div class="Cart-product"><div class="cart-item cart-column"><img class="Cart-img" src=""/><span class="Cart-infor"></span></div><span class="cart-price price-product cart-column"></span><div class="cart-quantity cart-quantity-ca cart-column"><inputstyle="width: 50%;text-align: center;line-height: 30px;border-radius: 5px;border: 1px solid #56ccf2;background-color: #eee;color: #333;padding-left: 5px;"id="q2_1"onchange="updateQuantity2(1)"type="number"value="1"/><button class="Cart-xoa" type="button">Xóa</button></div></div>'
 }
 document.addEventListener("DOMContentLoaded", ree());
+////////////////////////////////////////////////////////////////////////////
+function moreproduct() {
+  document.querySelector("#allsp").style.display = "none";
+  document.querySelector(".see").style.display = "none";
+  document.querySelector("#more").style.display = "grid";
 
+  document.querySelector(".back").style.display = "flex";
+  let more_product = localStorage.getItem("more_product")
+    ? JSON.parse(localStorage.getItem("more_product"))
+    : [];
+  if (!more_product) {
+  } else {
+    let moresp = "";
+    more_product.map((value, index) => {
+      moresp +=
+        '<div class="sanpham" type="thethao"><img class="anhsp imgsp" src="' +
+        value.moreimg +
+        '" alt=""/><div class="sp-sale">Sustainable Materials</div><div class="name-sp">' +
+        value.nameprodcut +
+        '</div><div class="thongtinsp">' +
+        value.information +
+        '</div><div class="thongtinsp">' +
+        value.color +
+        ' color</div><div class="cont">$<p class="gia">' +
+        (value.countadd - (value.countadd * value.sale) / 100) +
+        '</p><p style="text-decoration-line: line-through">$' +
+        value.countadd +
+        '</p></div><div class="giamgia">' +
+        value.sale +
+        '% off</div><button class="fancy buy"><span class="top-key"></span><span class="text">Buy Shoer</span><span class="bottom-key-1"></span><span class="bottom-key-2"></span></button><div class="size-number"><p class="size">Size</p><input class="sizegg"name="size"type="number"value="8"min="8"step="0.5"/></div></div>';
+    });
+    document.querySelector("#more").innerHTML = moresp;
+  }
+}
+
+/////////////////////////////////////////////////////////
+function come_back() {
+  document.querySelector(".see").style.display = "flex";
+  document.querySelector(".back").style.display = "none";
+  document.querySelector("#allsp").style.display = "grid";
+  document.querySelector("#more").style.display = "none";
+}
+///////////////////////////////////////////////////////////////////////////////////
 function xoa(index) {
   let list = localStorage.getItem("list")
     ? JSON.parse(localStorage.getItem("list"))
@@ -444,21 +441,7 @@ searchinput.addEventListener("input", function (e) {
     });
   }
 });
-/////////////////////////////////////////////
-// window.addEventListener("DOMContentLoaded",()=>{
-//   const imgaes=document.querySelectorAll("img");
-//   imgaes.forEach(image=>{
-//     new IntersectionObserver((entries,observe)=>{
-//       entries.forEach(entry=>{
-//         const img=entry.target;
-//         const dataSrc=img.getAttribute('data-src')
-//         img.setAttribute('src'.dataSrc)
-//         img.removeAttribute('datasrc')
-//         observe.disconnect()
-//       })
-//     }).observe(image)
-//   })
-// })
+
 /////////////////////////////////////////////////////
 var quanitlyinput = document.querySelectorAll(".ipsl");
 quanitlyinput.forEach((cout, index) => {
@@ -471,5 +454,51 @@ quanitlyinput.forEach((cout, index) => {
     list[index].soluong = parseInt(ipsl);
     localStorage.setItem("list", JSON.stringify(list));
     so();
+  });
+});
+////////////////////////////////////////////////////////////////////////////////
+let btnbuy = document.querySelectorAll(".buy");
+btnbuy.forEach((buy) => {
+  buy.addEventListener("click", (event) => {
+    var buybtn = event.target;
+    // console.log(buy);
+    var produc = buybtn.parentElement;
+    console.log(produc);
+    let namespr = produc.querySelector(".name-sp").textContent;
+    let thongtin = produc.querySelector(".thongtinsp").textContent;
+    let gia = produc.querySelector(".gia").textContent;
+    const anh = produc.querySelector(".imgsp");
+    const image = anh.getAttribute("src");
+    let sizegg = produc.querySelector(".sizegg").value;
+    var soluong = 1;
+    let list = localStorage.getItem("list")
+      ? JSON.parse(localStorage.getItem("list"))
+      : [];
+    console.log(list);
+    var flag = false;
+
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].namesp == namespr && list[i].sizeone == sizegg) {
+        var cout = list[i].soluong++;
+        flag = true;
+        break;
+      }
+    }
+    if (flag == false) {
+      list.push({
+        image: image,
+        namesp: namespr,
+        thongtin: thongtin,
+        gia: gia,
+        sizeone: sizegg,
+        soluong: soluong,
+      });
+    }
+    localStorage.setItem("list", JSON.stringify(list));
+
+    swal("successful", "successful payment!", "success");
+    document.querySelector("#so").innerText = list.length;
+    ree();
+    hienthikach();
   });
 });

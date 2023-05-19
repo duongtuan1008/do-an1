@@ -50,9 +50,14 @@ a {
   align-items: center;
 }
 .over-cart2 {
+  overflow-y: scroll;
   width: 60%;
-  max-height: 100px;
+  max-height: 500px;
   height: 100%;
+}
+.over-cart2::-webkit-scrollbar {
+  height: 6px;
+  width: 4px;
 }
 .Cart-product {
   display: grid;
@@ -61,6 +66,15 @@ a {
 
   padding: 10px;
   clear: both;
+}
+.over-tiket {
+  overflow-y: scroll;
+  max-height: 300px;
+  height: 100%;
+}
+.over-tiket::-webkit-scrollbar {
+  height: 6px;
+  width: 4px;
 }
 span {
   display: flex;

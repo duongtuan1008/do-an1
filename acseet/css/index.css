@@ -540,6 +540,11 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(400px, 200px));
   justify-content: center;
   grid-template-rows: repeat(auto-fit, minmax(500px, 650px));
+  /* display: none; */
+
+}
+.allmore{
+  grid-template-columns: repeat(auto-fit, minmax(400px, 200px));
 }
 #local {
   display: block;
@@ -606,6 +611,7 @@ a {
 }
 .anhsp {
   max-width: 370px;
+  max-height: 370px;
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transform: translateY(0px);
@@ -1094,6 +1100,7 @@ p.gia {
 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* overflow-y: scroll; */
   display: none;
 }
 .giohang::before {
@@ -1643,7 +1650,52 @@ button.Cart-xoa:active {
   background-color: rgb(0, 0, 0);
   animation: loader-bar-animation 2s ease-in-out infinite;
 }
+.btnopen {
+  width: 98%;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.btnopen button {
+  width: 130px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(15, 15, 15);
+  border: none;
+  color: white;
+  font-weight: 600;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+}
+.btnopen > button::before {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  content: "";
+  background-color: white;
+  border-radius: 50%;
+  left: -100%;
+  top: 0;
+  transition-duration: 0.3s;
+  mix-blend-mode: difference;
+}
 
+.btnopen > button:hover::before {
+  transition-duration: 0.3s;
+  transform: translate(100%, -50%);
+  border-radius: 0;
+}
+
+.btnopen button:active {
+  transform: translate(5px, 5px);
+  transition-duration: 0.3s;
+}
 @keyframes loader-bar-animation {
   0% {
     /* transform: translateX(-100%) rotate(270deg); */

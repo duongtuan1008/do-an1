@@ -11,15 +11,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link
-      rel="shortcut icon"
-      href="/acseet/img/kisspng-shopping-cart-e-commerce-online-shopping-logo-shopping-list-5b39bb28b67b06.0143388515305101207475.jpg"
-      type="image/x-icon"
-    />
+
     <link rel="stylesheet" href="/acseet/css/index.css" />
     <link rel="stylesheet" href="/acseet/css/silder.css" />
     <script type="text/javascript" src="/acseet/java/chart.js"></script>
-    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="/acseet/img/pngtree-cartoon-shoes-element-vector-png-image_2603024.png"
+      type="image/x-icon"
+    />
+    <title>Admin</title>
   </head>
   <body>
     <div id="header">
@@ -30,6 +31,12 @@
             alt=""
           />
           <div class="title" data-title="Tunsneaker"></div>
+        </div>
+        <div class="box box-user">
+          <a href="/user.html">
+            <i class="fa-solid fa-user box-icon" id="user"></i>
+            <img src="/acseet/img/giphy.gif" alt="" id="imguser" />
+          </a>
         </div>
       </div>
     </div>
@@ -43,20 +50,20 @@
                 class="nav__toggle"
                 id="nav-toggle"
               ></ion-icon>
-              <a href="#" class="nav__logo">Tunsneaker</a>
+              <a href="/index.html" class="nav__logo">Tunsneaker</a>
             </div>
             <div class="nav__list">
-              <a href="#" class="nav__link active">
+              <a href="#" class="nav__link active" id="Dashboarda">
                 <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                 <span class="nav__name">Dashboard</span>
               </a>
 
-              <div class="nav__link collapse">
+              <div class="nav__link collapse" id="product-more">
                 <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                 <span class="nav__name">Projects</span>
               </div>
 
-              <a href="#" class="nav__link">
+              <a href="#" class="nav__link" id="management-acc">
                 <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
                 <span class="nav__name">Analytics</span>
               </a>
@@ -68,7 +75,7 @@
             </div>
           </div>
 
-          <a href="#" class="nav__link">
+          <a href="/login.html" class="nav__link">
             <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Log Out</span>
           </a>
@@ -138,75 +145,90 @@
             </div>
           </div>
         </section>
-        <section class="database">
+        <section id="database" style="display: none">
           <div class="dashboard">
             <span>Thêm Sản Phẩm</span>
           </div>
           <div class="data-product">
             <div class="cart-add">
-              <label for="">
-                <label for="name" st class="form-label">Tên sản phẩm</label>
+              <div class="img-name">
+                <label for="">
+                  <label for="name" st class="form-label">Tên sản phẩm</label>
 
-                <input type="text" id="name" class="form-input ip-add" />
-                <div class="error-message-add"></div>
-              </label>
-              <label for="">
-                <div>
-                  <img
-                    src="/acseet/img/slider/choose.png"
-                    alt=""
-                    id="img"
-                    style="width: 100px"
-                  />
-                </div>
-                <input type="file" id="inputfile" class="input-file" />
-                <div class="error-message-add"></div>
-              </label>
-              <label for="">
-                <label for="" class="form-label">giá sản phẩm</label>
-                <input
-                  type="text"
-                  name=""
-                  class="form-input ip-add"
-                  id="countadd"
-                />
-                <div class="error-message-add"></div>
-              </label>
-              <label for="">
-                <label for="" class="form-label">sale</label>
-                <div class="input-group">
+                  <input type="text" id="name" class="form-input ip-add" />
+                  <div class="error-message-add"></div>
+                </label>
+                <label for="">
+                  <div>
+                    <img
+                      src="/acseet/img/slider/choose.png"
+                      alt=""
+                      id="img"
+                      style="width: 100px"
+                    />
+                  </div>
+                  <input type="file" id="inputfile" class="input-file" />
+                  <div class="error-message-add"></div>
+                </label>
+              </div>
+
+              <div class="thongtinsp">
+                <label for="">
+                  <label for="" class="form-label">giá sản phẩm</label>
                   <input
-                    type="number"
+                    type="text"
                     name=""
                     class="form-input ip-add"
-                    id="saleadd"
+                    id="countadd"
                   />
-                  <span class="input-group-text">%</span>
-                </div>
-              </label>
-              <label for="">
-                <label for="" class="form-label">color</label>
-                <input
-                  type="number"
-                  class="form-input ip-add"
-                  value="1"
-                  min="1"
-                  name=""
-                  id="color-add"
-                />
-                <div class="error-message-add"></div>
-              </label>
-              <label for="">
-                <label for="" class="form-label">information</label>
-                <input
-                  type="text"
-                  name=""
-                  class="form-input ip-add"
-                  id="ifn-add"
-                />
-                <div class="error-message-add"></div>
-              </label>
-              <button id="add-products">More products</button>
+                  <div class="error-message-add"></div>
+                </label>
+                <label for="">
+                  <label for="" class="form-label">sale</label>
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      name=""
+                      class="form-input ip-add"
+                      id="saleadd"
+                    />
+                    <span class="input-group-text">%</span>
+                  </div>
+                </label>
+                <label for="">
+                  <label for="" class="form-label">color</label>
+                  <input
+                    type="number"
+                    class="form-input ip-add"
+                    value="1"
+                    min="1"
+                    name=""
+                    id="color-add"
+                  />
+                  <div class="error-message-add"></div>
+                </label>
+                <label for="">
+                  <label for="" class="form-label">information</label>
+                  <input
+                    type="text"
+                    name=""
+                    class="form-input ip-add"
+                    id="ifn-add"
+                  />
+                  <div class="error-message-add"></div>
+                </label>
+                <label for="">
+                  <input type="hidden" id="index" />
+                </label>
+                <button id="add-products">More products</button>
+                <button
+                  id="update-products"
+                  style="display: none"
+                  onclick="updateproduct()"
+                >
+                  Update products
+                </button>
+              </div>
             </div>
             <div class="product-add">
               <div class="header-product">
@@ -217,6 +239,8 @@
                 <div>sale price</div>
                 <div>color</div>
                 <div>ifnomation</div>
+                <div>delete</div>
+                <div>edit</div>
               </div>
               <div class="Cartadd">
                 <div class="moresp">
@@ -229,8 +253,90 @@
                   <div class="saleadd">10%</div>
                   <div class="coloradd">3 color</div>
                   <div class="iformationadd">Women's Shoes</div>
+                  <div>
+                    <button class="delete-product">delete</button>
+                    <button class="edit-product">edit</button>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+        <section id="account" style="display: none">
+          <div class="dashboard">
+            <span>Account management</span>
+          </div>
+          <div class="row">
+            <div class="form-group label-account">
+              <label for="name-management">Name</label>
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                id="name-management"
+                placeholder="Enter name"
+              />
+            </div>
+            <div class="form-group label-account">
+              <label for="age-management">Age</label>
+              <input
+                type="number"
+                name="age"
+                class="form-control"
+                id="age-management"
+                placeholder="Enter age"
+              />
+            </div>
+            <div class="form-group label-account">
+              <label for="address-management">Address</label>
+              <input
+                type="text"
+                name="address"
+                class="form-control"
+                id="address-management"
+                placeholder="Enter address"
+              />
+            </div>
+            <div class="form-group label-account">
+              <label for="email-management">Email</label>
+              <input
+                type="text"
+                name="email"
+                class="form-control"
+                id="email-management"
+                placeholder="Enter name"
+              />
+            </div>
+            <div class="col-lg-12 mt-5">
+              <button
+                class="btnacc btn-success"
+                id="Submit"
+                onclick="addData()"
+              >
+                Add</button
+              ><button
+                class="btnacc btn-primary"
+                style="display: none"
+                id="Update"
+              >
+                Update
+              </button>
+            </div>
+          </div>
+          <div class="table">
+            <div class="col-12">
+              <table class="table table-bordered" id="crudTable">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
             </div>
           </div>
         </section>

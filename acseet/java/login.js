@@ -1,35 +1,29 @@
-const inputUsernameRegister = document.querySelector("#Email");
-const inputPasswordRegister = document.querySelector("#passR");
+let inputUsernameRegister = document.querySelector("#Email");
+let inputPasswordRegister = document.querySelector("#passR");
 const btnRegister = document.querySelector("#dangki");
 
-const namekhach = document.getElementById("name");
+let namekhach = document.getElementById("name");
 
 btnRegister.addEventListener("click", (e) => {
   e.preventDefault();
+  let listkhach = localStorage.getItem("listkhack")
+    ? JSON.parse(localStorage.getItem("listkhack"))
+    : [];
   if (
     inputUsernameRegister.value === "" ||
     inputPasswordRegister.value === ""
   ) {
     swal("Warning!", "Please do not leave it blank", "warning");
   } else {
-    // array user
+    let chucnang = 1; //nếu là 1 thì khi đăng nhapk sẽ là trang chủ còn là 2 thì sẽ là admin
 
-    const user = {
+    listkhach.push({
       namekhach: namekhach.value,
       username: inputUsernameRegister.value,
       password: inputPasswordRegister.value,
-    };
-    localStorage.setItem("user", JSON.stringify(user));
-    let json = JSON.stringify(user);
-
-    localStorage.setItem(inputUsernameRegister.value, json);
-    // let listkhach = localStorage.setItem("listkhack")
-    //   ? JSON.parse(localStorage.getItem("listbank"))
-    //   : [];
-    // listkhach.push({
-    //   namekhach: namekhach,
-    // });
-    // localStorage.setItem("listkhack", JSON.stringify(listkhach));
+      chucnang: chucnang,
+    });
+    localStorage.setItem("listkhack", JSON.stringify(listkhach));
     swal("Success", "Sign Up Success", "success");
     document.querySelector("#name").value = "";
     inputUsernameRegister.value = "";
@@ -64,18 +58,32 @@ btnLogin.addEventListener("click", (e) => {
   checkpass();
   if (inputPassword.value === "" || inputUsername === "") {
   } else {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (
-      user.username === inputUsername.value &&
-      user.password === inputPassword.value
-    ) {
-      window.location.href = "index.html";
-    } else {
-      if (inputUsername.value == "admin" && inputPassword.value == "123") {
-        window.location.href = "admin.html";
-      } else {
-        swal("Error!", "Login Up Error", "error");
+    let listkhach = localStorage.getItem("listkhack")
+      ? JSON.parse(localStorage.getItem("listkhack"))
+      : [];
+    for (let i = 0; i < listkhach.length; i++) {
+      console.log(i);
+      console.log(listkhach[i].username);
+      if (
+        listkhach[i].username === inputUsername.value &&
+        listkhach[i].password === inputPassword.value
+      ) {
+        let soindex = i;
+        localStorage.setItem("soindex", JSON.stringify(soindex));
+        if (parseInt(listkhach[i].chucnang) == 1) {
+          window.location.href = "index.html";
+        }
+        if (parseInt(listkhach[i].chucnang) == 2) {
+          window.location.href = "admin.html";
+        }
       }
+      // else {
+      //   if (inputUsername.value == "admin" && inputPassword.value == "123") {
+      //     window.location.href = "admin.html";
+      //   } else {
+      //     swal("Error!", "Login Up Error", "error");
+      //   }
+      // }
     }
   }
 });

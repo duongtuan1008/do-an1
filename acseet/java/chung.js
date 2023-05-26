@@ -56,6 +56,7 @@ function addsp() {
   const anh = document.querySelector(".imgsp");
   const image = anh.getAttribute("src");
   let sizeone = "";
+  var soluong = 1;
   for (let i = 0; i < size.length; i++) {
     if (size[i].checked == true) {
       sizeone = size[i].value;
@@ -71,6 +72,7 @@ function addsp() {
     thongtin: thongtin,
     gia: gia,
     sizeone: sizeone,
+    soluong:soluong
   });
 
   localStorage.setItem("list", JSON.stringify(list));
@@ -355,15 +357,16 @@ function hienthi() {
   subnav.classList.toggle("hile");
 }
 menu.addEventListener("click", hienthi);
-
+/////////////////////////////////////////////////////////////////////////////
 function hienthikach() {
-  let tk = document.querySelector(".taikhoan");
-  var obj = JSON.parse(localStorage.getItem("user"));
-  if (!obj) {
-    document.querySelector("#khach").innerText = "moi ban dang nhạp ";
+  var soindex = JSON.parse(localStorage.getItem("soindex"))
+  let listkhach = localStorage.getItem("listkhack")
+      ? JSON.parse(localStorage.getItem("listkhack"))
+      : [];
+  if (!listkhach ) {
+    document.querySelector("#khach").innerText = "Sign In";
   } else {
-    document.querySelector(".login").style.display = "none";
-    document.querySelector("#khach").innerText = obj.namekhach;
+    document.querySelector("#khach").innerText = listkhach[soindex].namekhach;
   }
 }
 document.addEventListener("DOMContentLoaded", hienthikach());

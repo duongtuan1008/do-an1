@@ -60,12 +60,14 @@ function so() {
 }
 ///////////////////////////////
 function hienthikach() {
-  let tk = document.querySelector(".taikhoan");
-  var obj = JSON.parse(localStorage.getItem("user"));
-  if (!obj) {
+  var soindex = JSON.parse(localStorage.getItem("soindex"))
+  let listkhach = localStorage.getItem("listkhack")
+      ? JSON.parse(localStorage.getItem("listkhack"))
+      : [];
+  if (!listkhach ) {
     document.querySelector("#khach").innerText = "Sign In";
   } else {
-    document.querySelector("#khach").innerText = obj.namekhach;
+    document.querySelector("#khach").innerText = listkhach[soindex].namekhach;
   }
 }
 document.addEventListener("DOMContentLoaded", hienthikach());

@@ -232,8 +232,10 @@ btntiket.addEventListener("click", function () {
 });
 document.getElementById("paying").addEventListener("click", function () {
   var bill = JSON.parse(localStorage.getItem("sumbill"));
-  var obj = JSON.parse(localStorage.getItem("user"));
-  if (!obj) {
+  let listkhach = localStorage.getItem("listkhack")
+      ? JSON.parse(localStorage.getItem("listkhack"))
+      : [];
+  if (!listkhach) {
     swal("Error!", "payment failed please login to pay", "error").then(
       (result) => {
         if (result.value) {
@@ -269,14 +271,16 @@ const buy = document.getElementById("buy");
 var billand = document.getElementById("billand");
 var infomationtiket = document.getElementById("tiket-profile");
 buy.addEventListener("click", function () {});
+////////////////////////////////////////////////////////
 function hienthikach() {
-  let tk = document.querySelector(".taikhoan");
-  var obj = JSON.parse(localStorage.getItem("user"));
-  if (!obj) {
-    document.querySelector("#khach").innerText = "moi ban dang nhạp ";
+  var soindex = JSON.parse(localStorage.getItem("soindex"))
+  let listkhach = localStorage.getItem("listkhack")
+      ? JSON.parse(localStorage.getItem("listkhack"))
+      : [];
+  if (!listkhach ) {
+    document.querySelector("#khach").innerText = "Sign In";
   } else {
-    document.querySelector(".login").style.display = "none";
-    document.querySelector("#khach").innerText = obj.namekhach;
+    document.querySelector("#khach").innerText = listkhach[soindex].namekhach;
   }
 }
 document.addEventListener("DOMContentLoaded", hienthikach());
@@ -291,6 +295,7 @@ quanitlyinput.forEach((cout, index) => {
     console.log(ipsl);
     list[index].soluong = parseInt(ipsl);
     localStorage.setItem("list", JSON.stringify(list));
+    sum();
     tiket();
   });
 });

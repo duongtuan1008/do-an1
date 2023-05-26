@@ -105,7 +105,7 @@ var pieChart = new Chart(pie, {
     datasets: [
       {
         label: "Tỉ lệ (%)",
-        data: [80, 90, 99, 67, 87],
+        data: [80, 90, 99, 100, 99],
         backgroundColor: "rgba(159, 187,  116,  0.2)",
         borderColor: "rgb(83, 113, 136)",
         pointBackgroundColor: "rgba(229, 249, 219,1)",
@@ -313,19 +313,16 @@ function validateForm() {
   return true;
 }
 function showData() {
-  let peopleList;
-  if (localStorage.getItem("peopleList") === null) {
-    peopleList = [];
-  } else {
-    peopleList = JSON.parse(localStorage.getItem("peopleList"));
-  }
-  //parse peopleList data then use map to render html
-  const html = peopleList.map((element, index) => {
+  let listkhach = localStorage.getItem("listkhack")
+    ? JSON.parse(localStorage.getItem("listkhack"))
+    : [];
+  //parse listkhach data then use map to render html
+  const html = listkhach.map((element, index) => {
     return `<tr>
-        <td>${element.name}</td>
-        <td>${element.age}</td>
-        <td>${element.email}</td>
-        <td>${element.address}</td>
+        <td>${element.namekhach}</td>
+        <td>${element.chucnang}</td>
+        <td>${element.username}</td>
+        <td>${element.password}</td>
         <td>
           <button onclick="deleteData(${index})" class="btnacc btn-danger">
             Delete
@@ -344,23 +341,21 @@ document.onload = showData();
 
 function addData() {
   if (validateForm()) {
-    const name = document.getElementById("name-management").value;
-    const age = document.getElementById("age-management").value;
-    const email = document.getElementById("email-management").value;
-    const address = document.getElementById("address-management").value;
-    let peopleList;
-    if (localStorage.getItem("peopleList") === null) {
-      peopleList = [];
-    } else {
-      peopleList = JSON.parse(localStorage.getItem("peopleList"));
-    }
-    peopleList.push({
-      name,
-      age,
-      email,
-      address,
+    const namekhach = document.getElementById("name-management").value;
+    const chucnang = document.getElementById("age-management").value;
+    const username = document.getElementById("email-management").value;
+    const password = document.getElementById("address-management").value;
+    let listkhach = localStorage.getItem("listkhack")
+      ? JSON.parse(localStorage.getItem("listkhack"))
+      : [];
+    listkhach.push({
+      namekhach: namekhach,
+      chucnang: chucnang,
+      username: username,
+      password: password,
     });
-    localStorage.setItem("peopleList", JSON.stringify(peopleList));
+    localStorage.setItem("listkhack", JSON.stringify(listkhach));
+
     showData();
     document.getElementById("name-management").value = "";
     document.getElementById("email-management").value = "";
@@ -370,51 +365,48 @@ function addData() {
 }
 
 function deleteData(index) {
-  let peopleList;
-  if (localStorage.getItem("peopleList") === null) {
-    peopleList = [];
-  } else {
-    peopleList = JSON.parse(localStorage.getItem("peopleList"));
-  }
-  peopleList.splice(index, 1);
-  localStorage.setItem("peopleList", JSON.stringify(peopleList));
+  let listkhach = localStorage.getItem("listkhack")
+      ? JSON.parse(localStorage.getItem("listkhack"))
+      : [];
+  console.log(listkhach);
+  listkhach.splice(index, 1);
+  localStorage.setItem("listkhach", JSON.stringify(listkhach));
   showData();
 }
 
 function updateData(index) {
   document.getElementById("Submit").style.display = "none";
   document.getElementById("Update").style.display = "block";
-  let peopleList;
-  if (localStorage.getItem("peopleList") === null) {
-    peopleList = [];
-  } else {
-    peopleList = JSON.parse(localStorage.getItem("peopleList"));
-  }
-  document.getElementById("name-management").value = peopleList[index].name;
-  document.getElementById("age-management").value = peopleList[index].age;
+  let listkhach = localStorage.getItem("listkhack")
+    ? JSON.parse(localStorage.getItem("listkhack"))
+    : [];
+  document.getElementById("name-management").value = listkhach[index].namekhach;
+  document.getElementById("age-management").value = listkhach[index].chucnang;
   document.getElementById("address-management").value =
-    peopleList[index].address;
-  document.getElementById("email-management").value = peopleList[index].email;
+    listkhach[index].password;
+
+  document.getElementById("email-management").value = listkhach[index].username;
 
   document.querySelector("#Update").onclick = function () {
-    if (validateForm() === true) {
-      peopleList[index].name = document.getElementById("name-management").value;
-      peopleList[index].age = document.getElementById("age-management").value;
-      peopleList[index].address =
-        document.getElementById("address-management").value;
-      peopleList[index].email =
-        document.getElementById("email-management").value;
-      localStorage.setItem("peopleList", JSON.stringify(peopleList));
-      showData();
+    listkhach[index] = {
+      namekhach: document.getElementById("name-management").value,
+      chucnang: document.getElementById("age-management").value,
+      password: document.getElementById("address-management").value,
+      username: document.getElementById("email-management").value,
+    };
+    console.log(document.getElementById("age-management").value);
+    localStorage.setItem("listkhack", JSON.stringify(listkhach));
 
-      //clear input value after clicking update button
-      document.getElementById("name-management").value = "";
-      document.getElementById("email-management").value = "";
-      document.getElementById("address-management").value = "";
-      document.getElementById("age-management").value = "";
-    }
+    showData();
+
+    //clear input value after clicking update button
+    document.getElementById("name-management").value = "";
+    document.getElementById("email-management").value = "";
+    document.getElementById("address-management").value = "";
+    document.getElementById("age-management").value = "";
   };
 }
+
 const data = document.getElementById("Dashboarda");
 const Chartdata = document.getElementById("home");
 const Product_Management = document.getElementById("database");
